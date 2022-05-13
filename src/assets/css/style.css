@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    background-image: linear-gradient( to bottom , #081221, #03080f );
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+/* h1,h2,h3,h4,h5,h6,label,button {
+    font-family: 'Montserrat', sans-serif;
+} */
+
+.main-container {
+    padding: 80px;
+}
+
+.main-container .tab-box { 
+    margin-bottom: 60px;
+    
+}
+
+.main-container .tab-box a {
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    z-index: 1000;
+    
+}
+
+.main-container .tab-box a.video-link::before {
+    content: "VIDEO";
+    position: absolute;
+    z-index: -1;
+    color: #1E2440;
+    font-size: 32px;
+    top: -20px;
+    left: -20px;
+    opacity: 1;
+    letter-spacing: 0.2px;
+}
+
+.main-container .tab-box a.Contact-link::before {
+    content: "Contact";
+    position: absolute;
+    z-index: -1;
+    color: #1E2440;
+    font-size: 32px;
+    top: -20px;
+    left: -20px;
+    opacity: 1;
+    letter-spacing: 0.2px;
+}
+.main-container .tab-box a:nth-child(1) {
+    margin-right: 40px;
+}
+
+
+.main-container .video-box .left-box { 
+    background-color: #171B30; 
+    padding: 20px;
+    border-radius: 4px;
+    width: 300px;
+    min-width: 300px;
+    margin-right: 20px;
+
+}
+
+.main-container .video-box .left-box .title { 
+   margin-bottom: 30px;
+}
+
+.main-container .video-box .left-box .title h1 { 
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff; 
+}
+
+
+.main-container .video-box .left-box .form-box label { 
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.main-container .video-box .left-box .form-box input { 
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #212B4A;
+    outline: none;
+    border: none;
+    padding: 8px 12px;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+}
+
+.main-container .video-box .left-box .form-box select { 
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #212B4A;
+    outline: none;
+    border: none;
+    padding: 8px 12px;
+    width: 100%;
+}
+
+.main-container .video-box .left-box .form-box .icon-box { 
+    background-color: #6082E7;    
+    padding: 8px;
+    min-width: 36px;
+    width: 36px;
+}
+
+
+
+.main-container .video-box .left-box .form-box .button-container a { 
+    color: #ffffff;
+    font-size: 14px;    
+    text-decoration: none;
+    font-weight: 600;
+    background-color: #6082E7;    
+    padding: 8px 14px;
+}
+
+
+.main-container .video-box .left-box .form-box .icon-box i { 
+    color: #ffffff;
+    font-size: 14px;    
+}
+
+.main-container .video-box .left-box .form-box .input-box { 
+    margin-bottom: 20px;
+}
+
+.main-container .video-box .right-box { 
+    width: 100%;
+    
+}
+
+.main-container .video-box .contact { 
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff; 
+}
+
+.main-container .video-box .contact h1 { 
+    font-size: 30px;
+    font-weight: 600;
+    color: #ffffff; 
+}
+
+.main-container .video-box .right-box .game-list .rating { 
+    border-radius: 50px;
+    background: rgb(25, 213, 238);
+    min-width: 55px;
+    min-height: 44px;
+    text-align: center;
+
+    
+}
+.main-container .video-box .right-box .game-list .rating p { 
+  
+    margin: 10px;
+    font-size: 27px;
+    max-width: 32px;
+    overflow: hidden;
+    
+}
+.main-container .video-box .right-box .game-list {
+    background-color: #171B30; 
+    margin-bottom: 15px ;
+   border-radius: 4px ;
+
+}
+
+.main-container .video-box .right-box .game-list .info {
+    padding: 20px;
+}
+
+.main-container .video-box .right-box .game-list .img-container {
+   width: 100px;
+   min-width: 100px;
+   height: 120px;
+   min-height: 120px;
+   border-top-left-radius: 4px ;
+   border-bottom-left-radius: 4px;
+}
+
+.main-container .video-box .right-box .game-list .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 4px ;
+    border-bottom-left-radius: 4px;
+ }
+
+.main-container .video-box .right-box .game-list .title {
+  margin-bottom: 15px;
+    
+}
+
+
+.main-container .video-box .right-box .game-list .title h1 {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.main-container .video-box .right-box .game-list .title p {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.main-container .video-box .right-box .game-list .desc p {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+/* css For contact page  */
+
+.main-container .video-box .contact-box { 
+    background-color: #171B30;
+    padding: 20px;
+    border-radius: 4px;
+    width: 500px;
+    min-width: 500px;
+    margin-right: 600px;
+    margin-top: 40px;
+}
+
+.main-container .video-box .contact-box .title { 
+   margin-bottom: 30px;
+   text-align: left;
+}
+
+.main-container .video-box .contact-box .title h1 { 
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff; 
+}
+
+
+.main-container .video-box .contact-box .form-box label { 
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: left;
+}
+
+.main-container .video-box .contact-box .form-box input { 
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #212B4A;
+    outline: none;
+    border: none;
+    padding: 8px 12px;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+}
+.main-container .video-box .contact-box .form-box textarea { 
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #212B4A;
+    outline: none;
+    border: none;
+    padding: 8px 12px;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+}
+
+
+
+
+.main-container .video-box .contact-box .form-box .button-container a { 
+    color: #ffffff;
+    font-size: 14px;    
+    text-decoration: none;
+    font-weight: 600;
+    background-color: #6082E7;    
+    padding: 8px 14px;
+}
+
+.main-container .video-box .contact-box .form-box .input-box { 
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* 
+responsive code 
+*/
+
+@media (max-width: 1023px) {
+    .main-container {
+        padding: 50px;
+    }
+    .main-container .video-box {
+        flex-direction: column;
+      }
+      .main-container .video-box .left-box {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      
+  }
+
+@media (max-width: 767px) {
+    .main-container .tab-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-container .tab-box a {
+        margin-bottom: 20px;
+        margin-right: 0px;
+
+    }
+  }
