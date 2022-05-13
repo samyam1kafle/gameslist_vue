@@ -1,12 +1,13 @@
 <template>
-   <HeaderPage />
+  <HeaderPage />
 
   <body>
-    <component :is="currentView" />
     <div class="main-container">
       <div class="tab-box flex-css-row-start">
-          <router-link to="/" class="video-link" active-class="active">Video Games</router-link>
-          <router-link to="/Contact">Contact</router-link>
+        <router-link to="/" class="video-link" active-class="active"
+          >Video Games</router-link
+        >
+        <router-link to="/Contact">Contact</router-link>
       </div>
       <div class="video-box flex-top-row-sb">
         <div class="left-box">
@@ -39,16 +40,16 @@
                 <div class="icon-box flex-css">
                   <i class="fa-solid fa-arrow-up"></i>
                 </div>
-                  <!-- <router-link to="/">Videos</router-link>
+                <!-- <router-link to="/">Videos</router-link>
   <router-link to="/Contact">Contact</router-link> -->
                 <select
-                  @keyup="hasChanged"
+                  @change="hasChanged"
                   name="option"
                   id="option"
                   v-model="form.order_by"
                 >
-                  <option value="released date" selected>Released Date</option>
-                  <option value="score">Score</option>
+                  <option value="first_release_date">Released Date</option>
+                  <option value="rating">Score</option>
                   <option value="name">Name</option>
                 </select>
               </div>
@@ -101,7 +102,7 @@ const defaultForm = {
 export default {
   name: "TaskIndex",
   components: {
-    HeaderPage
+    HeaderPage,
   },
   props: {
     data: Object,
@@ -115,11 +116,27 @@ export default {
   },
   computed: {
     hasChanged() {
-      return this.getFilteredData
+      return this.getFilteredData;
     },
     clearFilter() {
-        return this.clearSearchFilter
-    }
+      return this.clearSearchFilter;
+    },
+    getOrderBy() {
+      return this.form.order_by;
+    },
+    // sortedArray() {
+    //   this.game = this.game.sort((a, b) => {
+    //     let fa = a.getOrderBy,
+    //       fb = b.getOrderBy;
+    //     if (fa < fb) {
+    //       return -1;
+    //     }
+    //     if (fa > fb) {
+    //       return 1;
+    //     }
+    //     return 0;
+    //   });
+    // },
   },
 
   async mounted() {
@@ -132,65 +149,63 @@ export default {
   },
   methods: {
     getFilteredData() {
-      let self = this
-      let tempArr = []
+      let self = this;
+      let tempArr = [];
 
-      const gameObj = JSON.parse(JSON.stringify(self.copyData))
+      const gameObj = JSON.parse(JSON.stringify(self.copyData));
 
       if (
-        (self.form.name.length > 0) ||
-        (self.form.min_score.length > 0) ||
-        (self.form.order_by.length > 0) && (gameObj.length > 0)
+        (self.form.name.length > 0 || self.form.min_score.length > 0) &&
+        gameObj.length > 0
       ) {
-         
         gameObj.forEach((element) => {
-          var arrayNameText = element.name.toLowerCase()
-          var arrayminSoreText = element.rating.toString().toLowerCase()
-         
+          var arrayNameText = element.name.toLowerCase();
+          // return
+          // var arrayminSoreText = element.rating.toString().toLowerCase();
+          var arrayminSoreText = parseInt(element.rating, 10)
 
-          if (arrayNameText.match(self.form.name.toLowerCase())) { 
-            tempArr.push(element)
-          } 
-          else if (arrayminSoreText.match(self.form.min_score.toLowerCase())) {
-            // going inside for every case need to debug it 
-            tempArr.push(element)
+          if (self.form.name.length > 0) {
+            arrayNameText.match(self.form.name.toLowerCase())
+              ? tempArr.push(element)
+              : "";
+          }
+          if (self.form.min_score.length > 0) {
+            if ( arrayminSoreText >= parseInt(self.form.min_score, 10) ) {
+              tempArr.push(element)
+            }
+           
           }
         });
-        self.game = tempArr
-      } else { 
-        self.game = self.copyData
+        self.game = tempArr;
+      } else {
+        self.game = self.copyData;
       }
+      // Sorting The array after the search is completed
+      if (self.form.order_by.length > 0) {
+        // const gameArr = JSON.parse(JSON.stringify(self.game));
 
+        // let sortArr = []
+        // gameArr.forEach((element) => {
+        //   if ( element.) {
+
+        //   }
+        // });
+        // return this.sortedArray
+        // console.log();
+      }
     },
     clearFormValues() {
-        this.form.name = ""
-        this.form.min_score = ""
-        this.form.order_by = ""
-        return true
+      this.form.name = "";
+      this.form.min_score = "";
+      this.form.order_by = "";
+      return true;
     },
     clearSearchFilter() {
-        this.clearFormValues()
-        this.game = this.copyData
-        return
-    }
+      this.clearFormValues();
+      this.game = this.copyData;
+      return;
+    },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

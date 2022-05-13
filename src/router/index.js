@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import HomeView from '../views/HomeView.vue'
 import TaskIndex from "../components/TaskIndex.vue";
 import Contact from "../components/Contact.vue";
 
